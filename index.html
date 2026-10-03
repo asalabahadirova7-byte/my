@@ -1,84 +1,923 @@
 <!DOCTYPE html>
 <html lang="kk">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Мен туралы</title>
+
+    <title>Асала | Жеке сайт</title>
 
     <style>
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
             font-family: Arial, sans-serif;
-            background-color: #f2f6ff;
-            margin: 0;
-            padding: 40px;
-            color: #333;
-        }
-
-        .container {
-            max-width: 700px;
-            margin: auto;
-            background-color: white;
-            padding: 30px;
-            border-radius: 15px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-        }
-
-        h1 {
-            color: #2563eb;
-            text-align: center;
-        }
-
-        h2 {
-            color: #1e40af;
-        }
-
-        p {
-            font-size: 18px;
+            background: #f0fdfa;
+            color: #263238;
             line-height: 1.6;
         }
 
-        .info {
-            background-color: #eef4ff;
-            padding: 15px;
+        .container {
+            width: 90%;
+            max-width: 1100px;
+            margin: auto;
+        }
+
+        /* Сайттың жоғарғы бөлігі */
+        header {
+            background: #0f766e;
+            color: white;
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        header h1 {
+            font-size: 28px;
+        }
+
+        nav {
+            display: flex;
+            gap: 25px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-size: 16px;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            color: #ccfbf1;
+        }
+
+        /* Негізгі экран */
+        .hero {
+            padding: 100px 0;
+            background: linear-gradient(135deg, #ccfbf1, #f0fdfa);
+        }
+
+        .hero-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 50px;
+        }
+
+        .hero-text {
+            max-width: 650px;
+        }
+
+        .small-title {
+            color: #0f766e;
+            font-weight: bold;
+            letter-spacing: 2px;
+            margin-bottom: 15px;
+        }
+
+        .hero h2 {
+            font-size: 50px;
+            margin-bottom: 20px;
+        }
+
+        .hero h2 span {
+            color: #0f766e;
+        }
+
+        .hero p {
+            font-size: 18px;
+            margin-bottom: 25px;
+        }
+
+        .button {
+            display: inline-block;
+            padding: 13px 28px;
+            background: #0f766e;
+            color: white;
+            text-decoration: none;
+            border-radius: 30px;
+            transition: 0.3s;
+        }
+
+        .button:hover {
+            background: #115e59;
+            transform: translateY(-3px);
+        }
+
+        /* Дөңгелек */
+        .profile-circle {
+            width: 270px;
+            height: 270px;
+            min-width: 270px;
+            border-radius: 50%;
+            background: #0f766e;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            box-shadow: 0 15px 40px rgba(15, 118, 110, 0.3);
+        }
+
+        .circle-text {
+            color: white;
+            font-size: 38px;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        /* Бөлімдер */
+        .section {
+            padding: 75px 0;
+        }
+
+        .gray {
+            background: #f0fdfa;
+        }
+
+        .section-title {
+            text-align: center;
+            color: #0f766e;
+            font-size: 34px;
+            margin-bottom: 40px;
+        }
+
+        /* Мен туралы */
+        .about-box {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 45px;
+        }
+
+        .about-info h3 {
+            font-size: 25px;
+            margin-bottom: 15px;
+        }
+
+        .about-info p {
+            margin-bottom: 15px;
+        }
+
+        .info-list {
+            background: white;
+            padding: 25px;
+            border-radius: 20px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.07);
+        }
+
+        .info-list div {
+            display: flex;
+            justify-content: space-between;
+            gap: 15px;
+            padding: 14px 0;
+            border-bottom: 1px solid #ccfbf1;
+        }
+
+        .info-list div:last-child {
+            border-bottom: none;
+        }
+
+        .info-list b {
+            color: #0f766e;
+        }
+
+        /* Білім */
+        .education-card {
+            background: white;
+            padding: 35px;
+            border-radius: 20px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.07);
+        }
+
+        .education-card h3 {
+            color: #0f766e;
+            margin-bottom: 15px;
+        }
+
+        /* Бағдарламалар */
+        .program-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .program {
+            background: white;
+            padding: 25px;
+            border-radius: 18px;
+            text-align: center;
+            transition: 0.3s;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .program:hover {
+            transform: translateY(-7px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .program-icon {
+            width: 65px;
+            height: 65px;
+            margin: 0 auto 15px;
+            border-radius: 50%;
+            background: #0f766e;
+            color: white;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            font-weight: bold;
+            font-size: 14px;
+        }
+
+        .program h3 {
+            margin-bottom: 8px;
+            color: #263238;
+        }
+
+        /* Дағдылар */
+        .skills {
+            max-width: 750px;
+            margin: auto;
+        }
+
+        .skill {
+            margin-bottom: 22px;
+        }
+
+        .skill-name {
+            font-weight: bold;
+        }
+
+        .progress {
+            height: 10px;
+            background: #ccfbf1;
             border-radius: 10px;
+            margin-top: 8px;
+            overflow: hidden;
+        }
+
+        .progress-line {
+            height: 100%;
+            background: #0f766e;
+            border-radius: 10px;
+        }
+
+        .html {
+            width: 85%;
+        }
+
+        .css {
+            width: 80%;
+        }
+
+        .javascript {
+            width: 65%;
+        }
+
+        .java {
+            width: 60%;
+        }
+
+        /* Мақсаттар */
+        .goals {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .goal {
+            background: #f0fdfa;
+            padding: 30px;
+            border-radius: 20px;
+        }
+
+        .goal-number {
+            font-size: 30px;
+            color: #0f766e;
+            font-weight: bold;
+        }
+
+        .goal h3 {
+            margin: 10px 0;
+        }
+
+        /* Байланыс */
+        .contact {
+            padding: 80px 0;
+            text-align: center;
+            background: #0f766e;
+            color: white;
+        }
+
+        .contact h2 {
+            font-size: 38px;
+            margin-bottom: 15px;
+        }
+
+        .contact p {
+            margin-bottom: 20px;
+        }
+
+        .email-button {
+            display: inline-block;
+            padding: 14px 30px;
+            background: white;
+            color: #0f766e;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .email-button:hover {
+            transform: scale(1.05);
+        }
+
+        .email {
             margin-top: 20px;
         }
 
-        .info p {
-            margin: 8px 0;
+        /* Төменгі бөлік */
+        footer {
+            background: #173f3b;
+            color: white;
+            text-align: center;
+            padding: 25px;
         }
+
+        /* Телефонға бейімдеу */
+        @media (max-width: 850px) {
+
+            .header-content {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            nav {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .hero-content {
+                flex-direction: column-reverse;
+                text-align: center;
+            }
+
+            .about-box {
+                grid-template-columns: 1fr;
+            }
+
+            .program-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .goals {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 550px) {
+
+            .hero h2 {
+                font-size: 36px;
+            }
+
+            .profile-circle {
+                width: 210px;
+                height: 210px;
+                min-width: 210px;
+            }
+
+            .program-grid {
+                grid-template-columns: 1fr;
+            }
+
+            nav {
+                gap: 12px;
+            }
+        }
+
     </style>
 </head>
 
+
 <body>
 
-    <div class="container">
+    <!-- Жоғарғы бөлік -->
+    <header>
 
-        <h1>Мен туралы</h1>
+        <div class="container header-content">
 
-        <p>
-            Сәлем! Менің атым Асел. Мен университетте білім алып жатқан студентпін.
-            Қазіргі уақытта IT саласына байланысты білім алып, бағдарламалау
-            және веб-технологияларды үйреніп жүрмін.
-        </p>
+            <h1>Асала</h1>
 
-        <div class="info">
-            <h2>Менің мамандығым</h2>
+            <nav>
+                <a href="#about">Мен туралы</a>
+                <a href="#education">Білімім</a>
+                <a href="#programs">Бағдарламалар</a>
+                <a href="#skills">Дағдылар</a>
+                <a href="#contact">Байланыс</a>
+            </nav>
 
-            <p><b>Мамандығым:</b> Ақпараттық технологиялар</p>
-            <p><b>Оқу орны:</b> Университет</p>
-            <p><b>Қызығушылығым:</b> Бағдарламалау, веб-сайт жасау және жаңа технологиялар</p>
         </div>
 
-        <h2>Менің мақсатым</h2>
+    </header>
+
+
+    <!-- Негізгі бөлік -->
+    <section class="hero">
+
+        <div class="container hero-content">
+
+            <div class="hero-text">
+
+                <p class="small-title">
+                    СТУДЕНТ • IT • БАҒДАРЛАМАЛАУ
+                </p>
+
+                <h2>
+                    Сәлем! Мен <span>Асаламын</span>
+                </h2>
+
+                <p>
+                    Мен ЖЕНПУ университетінің студентімін.
+                    Ақпараттық технологиялар саласында білім алып
+                    жатырмын. Бағдарламалау, веб-әзірлеу, деректер
+                    базасы және заманауи цифрлық технологияларға
+                    қызығамын.
+                </p>
+
+                <a href="#about" class="button">
+                    Мен туралы білу
+                </a>
+
+            </div>
+
+
+            <!-- ЖЕНПУ дөңгелегі -->
+            <div class="profile-circle">
+
+                <div class="circle-text">
+                    ЖЕНПУ
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- Мен туралы -->
+    <section id="about" class="section">
+
+        <div class="container">
+
+            <h2 class="section-title">
+                Мен туралы
+            </h2>
+
+            <div class="about-box">
+
+                <div class="about-info">
+
+                    <h3>
+                        Өзім туралы қысқаша
+                    </h3>
+
+                    <p>
+                        Менің атым Асала. Мен ЖЕНПУ университетінде
+                        ақпараттық технологиялар саласында білім
+                        алып жатқан студентпін.
+                    </p>
+
+                    <p>
+                        Оқу барысында бағдарламалау, веб-сайт жасау,
+                        деректер базасы және заманауи компьютерлік
+                        технологияларды үйреніп жүрмін.
+                    </p>
+
+                    <p>
+                        Маған жаңа технологияларды зерттеу, оқу
+                        жобаларын орындау және кәсіби дағдыларымды
+                        дамыту ұнайды.
+                    </p>
+
+                </div>
+
+
+                <div class="info-list">
+
+                    <div>
+                        <b>Аты:</b>
+                        <span>Асала</span>
+                    </div>
+
+                    <div>
+                        <b>Университет:</b>
+                        <span>ЖЕНПУ</span>
+                    </div>
+
+                    <div>
+                        <b>Мәртебесі:</b>
+                        <span>Студент</span>
+                    </div>
+
+                    <div>
+                        <b>Саласы:</b>
+                        <span>IT</span>
+                    </div>
+
+                    <div>
+                        <b>Қызығушылық:</b>
+                        <span>Бағдарламалау</span>
+                    </div>
+
+                    <div>
+                        <b>Веб-әзірлеу:</b>
+                        <span>HTML, CSS, JavaScript</span>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- Білім -->
+    <section id="education" class="section gray">
+
+        <div class="container">
+
+            <h2 class="section-title">
+                Менің білімім
+            </h2>
+
+            <div class="education-card">
+
+                <h3>
+                    ЖЕНПУ
+                </h3>
+
+                <p>
+                    Мен ЖЕНПУ университетінің студентімін және
+                    ақпараттық технологиялар саласында білім
+                    алып жатырмын.
+                </p>
+
+                <br>
+
+                <p>
+                    Оқу барысында бағдарламалау, веб-әзірлеу,
+                    деректер базасы, жасанды интеллект және
+                    IT саласының басқа да бағыттарын үйренемін.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- Бағдарламалар -->
+    <section id="programs" class="section">
+
+        <div class="container">
+
+            <h2 class="section-title">
+                Бағдарламалар мен технологиялар
+            </h2>
+
+            <div class="program-grid">
+
+                <div class="program">
+
+                    <div class="program-icon">
+                        HTML
+                    </div>
+
+                    <h3>HTML</h3>
+
+                    <p>
+                        Веб-беттің құрылымын жасау.
+                    </p>
+
+                </div>
+
+
+                <div class="program">
+
+                    <div class="program-icon">
+                        CSS
+                    </div>
+
+                    <h3>CSS</h3>
+
+                    <p>
+                        Сайттың дизайны мен сыртқы көрінісін жасау.
+                    </p>
+
+                </div>
+
+
+                <div class="program">
+
+                    <div class="program-icon">
+                        JS
+                    </div>
+
+                    <h3>JavaScript</h3>
+
+                    <p>
+                        Интерактивті элементтер жасау.
+                    </p>
+
+                </div>
+
+
+                <div class="program">
+
+                    <div class="program-icon">
+                        JAVA
+                    </div>
+
+                    <h3>Java</h3>
+
+                    <p>
+                        Бағдарламалау негіздерін үйрену.
+                    </p>
+
+                </div>
+
+
+                <div class="program">
+
+                    <div class="program-icon">
+                        SQL
+                    </div>
+
+                    <h3>MySQL</h3>
+
+                    <p>
+                        Деректер базасымен жұмыс жасау.
+                    </p>
+
+                </div>
+
+
+                <div class="program">
+
+                    <div class="program-icon">
+                        VS
+                    </div>
+
+                    <h3>VS Code</h3>
+
+                    <p>
+                        Код жазу және өңдеу.
+                    </p>
+
+                </div>
+
+
+                <div class="program">
+
+                    <div class="program-icon">
+                        GH
+                    </div>
+
+                    <h3>GitHub</h3>
+
+                    <p>
+                        Жобаларды сақтау және жариялау.
+                    </p>
+
+                </div>
+
+
+                <div class="program">
+
+                    <div class="program-icon">
+                        MAT
+                    </div>
+
+                    <h3>MATLAB</h3>
+
+                    <p>
+                        Математикалық және инженерлік есептерді орындау.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- Дағдылар -->
+    <section id="skills" class="section gray">
+
+        <div class="container">
+
+            <h2 class="section-title">
+                Менің дағдыларым
+            </h2>
+
+            <div class="skills">
+
+                <div class="skill">
+
+                    <span class="skill-name">
+                        HTML
+                    </span>
+
+                    <div class="progress">
+                        <div class="progress-line html"></div>
+                    </div>
+
+                </div>
+
+
+                <div class="skill">
+
+                    <span class="skill-name">
+                        CSS
+                    </span>
+
+                    <div class="progress">
+                        <div class="progress-line css"></div>
+                    </div>
+
+                </div>
+
+
+                <div class="skill">
+
+                    <span class="skill-name">
+                        JavaScript
+                    </span>
+
+                    <div class="progress">
+                        <div class="progress-line javascript"></div>
+                    </div>
+
+                </div>
+
+
+                <div class="skill">
+
+                    <span class="skill-name">
+                        Java
+                    </span>
+
+                    <div class="progress">
+                        <div class="progress-line java"></div>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- Мақсаттар -->
+    <section class="section">
+
+        <div class="container">
+
+            <h2 class="section-title">
+                Менің мақсаттарым
+            </h2>
+
+            <div class="goals">
+
+                <div class="goal">
+
+                    <span class="goal-number">
+                        01
+                    </span>
+
+                    <h3>
+                        Даму
+                    </h3>
+
+                    <p>
+                        Жаңа технологияларды үйреніп,
+                        білімімді үнемі жетілдіру.
+                    </p>
+
+                </div>
+
+
+                <div class="goal">
+
+                    <span class="goal-number">
+                        02
+                    </span>
+
+                    <h3>
+                        Жасау
+                    </h3>
+
+                    <p>
+                        Қызықты жобалармен жұмыс істеп,
+                        пайдалы сайттар мен бағдарламалар жасау.
+                    </p>
+
+                </div>
+
+
+                <div class="goal">
+
+                    <span class="goal-number">
+                        03
+                    </span>
+
+                    <h3>
+                        Болашақ
+                    </h3>
+
+                    <p>
+                        Кәсіби тәжірибе жинап,
+                        IT саласында дамуды жалғастыру.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- Байланыс -->
+    <section id="contact" class="contact">
+
+        <div class="container">
+
+            <h2>
+                Менімен байланысу
+            </h2>
+
+            <p>
+                Егер менімен байланысқыңыз келсе,
+                электрондық пошта арқылы жазыңыз.
+            </p>
+
+            <a
+                href="mailto:your-email@gmail.com"
+                class="email-button"
+            >
+                Маған жазу
+            </a>
+
+            <p class="email">
+                your-email@gmail.com
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- Төменгі бөлік -->
+    <footer>
 
         <p>
-            Болашақта IT саласында жақсы маман болып, өзімнің қызықты
-            жобаларымды жасағым келеді. Жаңа технологияларды меңгеріп,
-            тәжірибемді үнемі дамытқым келеді.
+            © 2026 Асала. Менің жеке сайтым.
         </p>
 
-    </div>
+    </footer>
 
 </body>
+
 </html>
+```
